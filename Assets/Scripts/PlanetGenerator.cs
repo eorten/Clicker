@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO.IsolatedStorage;
+using System.Linq;
 using UnityEngine;
 
 public class PlanetGenerator : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlanetGenerator : MonoBehaviour
     [SerializeField] Planet planetPrefab;
 
     [Header("Generate")]
+    //Trenger ikke ha med stein og dirt
     [SerializeField] OreProfile[] ores;
     [SerializeField] OreProfile surfaceOre;
     [SerializeField] OreProfile stoneOre;
@@ -17,10 +19,10 @@ public class PlanetGenerator : MonoBehaviour
 
     private void Start()
     {
-        Generate(10, 0, 0, 0);
+        Generate(10, 0, 0, 0, ores);
     }
 
-    public void Generate(int points, int extraOrePoints, int extraSurfacePoints, int extraSizePoints)
+    public void Generate(int points, int extraOrePoints, int extraSurfacePoints, int extraSizePoints, OreProfile[] availableOres)
     {
 
         //Give initial points
@@ -85,11 +87,12 @@ public class PlanetGenerator : MonoBehaviour
         int radius = Mathf.RoundToInt(tempRadius);
 
         //Assign ores
-        int maxOres = 4;
+        int maxOres = 5;
+        maxOres = maxOres > availableOres.Count() ? availableOres.Count() : maxOres;
         List<OreProfile> selectedOres = new List<OreProfile>();
         selectedOres.Add(stoneOre);
         while (selectedOres.Count < maxOres) {
-            OreProfile toAdd = ores[Random.Range(0, ores.Length)];
+            OreProfile toAdd = availableOres[Random.Range(0, availableOres.Length)];
             if (!selectedOres.Contains(toAdd))
             {
                 selectedOres.Add(toAdd);

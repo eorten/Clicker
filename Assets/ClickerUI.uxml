@@ -1,0 +1,49 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/TabbedMenu.uss?fileID=7433441132597879392&amp;guid=e0a93b2166ecd43498c9f88c7191a445&amp;type=3#TabbedMenu" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement name="UIContainer" style="flex-grow: 1; background-color: rgba(255, 255, 255, 0); width: 50%; height: 100%;">
+            <ui:VisualElement name="tabs" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); height: 0; width: 100%; top: auto; align-self: stretch; justify-content: space-between; align-items: stretch; flex-direction: row;">
+                <ui:Label tabindex="-1" text="Cannons" display-tooltip-when-elided="true" name="CannonTab" class="tab text currentlySelectedTab" style="width: 20%; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                <ui:Label tabindex="-1" text="Inventory" display-tooltip-when-elided="true" name="InventoryTab" class="tab text" style="width: 20%; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                <ui:Label tabindex="-1" text="Buildings" display-tooltip-when-elided="true" name="BuildingsTab" class="tab text" style="width: 20%; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+                <ui:Label tabindex="-1" text="Upgrades" display-tooltip-when-elided="true" name="UpgradesTab" class="tab text" style="width: 20%; -unity-text-align: middle-center; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="tabContent" style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.09); width: 100%; height: 83%; -unity-background-image-tint-color: rgba(255, 255, 255, 0); min-width: initial; min-height: initial;">
+                <ui:VisualElement name="CannonContent" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 100%;">
+                    <ui:VisualElement name="Cannon" class="canon" style="flex-grow: 1; background-color: rgba(255, 255, 255, 0.17); width: 100%; height: 387px; flex-direction: row;">
+                        <ui:VisualElement name="InteractPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; justify-content: space-between; align-items: stretch; align-self: stretch;">
+                            <ui:ProgressBar value="19.1" name="excavator1_queued" title="Load Excavator" style="height: 30%; justify-content: center; align-items: stretch; flex-direction: column; align-self: stretch;">
+                                <ui:Button display-tooltip-when-elided="true" name="excavator1_Load" style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; width: 100%; height: 100%; background-color: rgba(188, 188, 188, 0); position: absolute; opacity: 0;" />
+                            </ui:ProgressBar>
+                            <ui:VisualElement name="UpgradePanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-around; align-items: stretch; height: 70%;">
+                                <ui:Button text="+Damage" display-tooltip-when-elided="true" name="excavator1_DMG" style="width: 48%; min-width: 0; min-height: 0;" />
+                                <ui:Button text="+Speed" display-tooltip-when-elided="true" name="excavator1_ASP" style="width: 48%;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="StatPanel" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 39%; justify-content: space-around; height: 100%; align-items: stretch;">
+                            <ui:VisualElement name="Damage" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-between;">
+                                <ui:Label tabindex="-1" text="Damage" display-tooltip-when-elided="true" class="text" style="-unity-text-align: middle-left;" />
+                                <ui:Label tabindex="-1" text="2" display-tooltip-when-elided="true" class="text" style="-unity-text-align: middle-left;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="Asp" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-between;">
+                                <ui:Label tabindex="-1" text="Asp" display-tooltip-when-elided="true" class="text" style="-unity-text-align: middle-left;" />
+                                <ui:Label tabindex="-1" text="0.5" display-tooltip-when-elided="true" class="text" style="-unity-text-align: middle-left;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="DPS" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row; justify-content: space-between;">
+                                <ui:Label tabindex="-1" text="DPS" display-tooltip-when-elided="true" class="text" style="-unity-text-align: middle-left;" />
+                                <ui:Label tabindex="-1" text="4" display-tooltip-when-elided="true" class="text" style="-unity-text-align: middle-left;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="canon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 387px;" />
+                    <ui:VisualElement class="canon" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 387px;" />
+                    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 387px;" />
+                    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); width: 100%; height: 387px;" />
+                </ui:VisualElement>
+                <ui:Label tabindex="-1" text="//Inven here" display-tooltip-when-elided="true" name="InventoryContent" class="content text unselectedContent" style="background-color: rgba(0, 0, 0, 0);" />
+                <ui:Label tabindex="-1" text="//Buildings here" display-tooltip-when-elided="true" name="BuildingsContent" class="unselectedContent content text" />
+                <ui:Label tabindex="-1" text="//Upgrades here" display-tooltip-when-elided="true" name="UpgradesContent" class="unselectedContent content text" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

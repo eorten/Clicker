@@ -10,6 +10,7 @@ public class RecipieButton : MonoBehaviour
     [SerializeField] S_Inventory playerInventory;
     [SerializeField] List<OreProfile> ores;
     [SerializeField] List<int> oreAmount;
+    [SerializeField] List<int> oreAmountChange;
 
     [SerializeField] GameObject InventoryElement;
 
@@ -17,7 +18,7 @@ public class RecipieButton : MonoBehaviour
 
     [SerializeField] UnityEvent Response;
 
-
+    [SerializeField] PriceRaiseType priceRaiseType;
 
     private void Start()
     {
@@ -44,6 +45,24 @@ public class RecipieButton : MonoBehaviour
                 return;
             }
         }
+
+        for (int i = 0;i < oreAmount.Count; i++) {
+            switch (priceRaiseType)
+            {
+                case PriceRaiseType.Add:
+                    oreAmount[i] += oreAmountChange[i];
+                    break;
+                case PriceRaiseType.Multiply:
+                    oreAmount[i] *= oreAmountChange[i];
+                    break;
+            }
+        }
+
         Response.Invoke();
     }
+}
+
+public enum PriceRaiseType
+{
+    Add, Multiply
 }

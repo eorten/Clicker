@@ -152,6 +152,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7320a0375e44d4b4d9c857911c0140a5, type: 2}
   - {fileID: 11400000, guid: 895aff09049ca8143b2b79861520b975, type: 2}
   oreAmount: 0100000002000000
+  oreAmountChange: 
   InventoryElement: {fileID: 8480817070187216527, guid: abc3ccb7c95e91d4cb45dd4b2e937c4e, type: 3}
   content: {fileID: 848983249368766670}
   Response:
@@ -169,6 +170,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  priceRaiseType: 0
 --- !u!1 &8012157189652018361
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,10 +242,10 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0

@@ -4,23 +4,22 @@ using System.Collections.Generic;
 using System.IO.IsolatedStorage;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
 
 public class Excavator : MonoBehaviour
 {
     [SerializeField] S_TileList planet;
     [SerializeField] int excavateDamage;
-    [SerializeField] float excavateDelay;
+    [SerializeField] int exavationsPerMinute = 60;
     [SerializeField] int queuedExcavations;
     [SerializeField] int maxQueuedExcavations;
-    [SerializeField] Slider queuedSlider;
+    //[SerializeField] Slider queuedSlider;
     private Tile tile;
 
 
     private float timeSinceLastExcavate = 0;
     private void Update()
     {
-        if (timeSinceLastExcavate > excavateDelay && queuedExcavations > 0)
+        if (timeSinceLastExcavate > (exavationsPerMinute/60) && queuedExcavations > 0)
         {
             if (tile == null || tile.GetHP() <= 0)
             {
@@ -50,8 +49,8 @@ public class Excavator : MonoBehaviour
 
     private void UpdateUI()
     {
-        queuedSlider.maxValue = maxQueuedExcavations;
-        queuedSlider.value = queuedExcavations;
+        //queuedSlider.maxValue = maxQueuedExcavations;
+        //queuedSlider.value = queuedExcavations;
     }
 
     private Tile FindNewTile()
@@ -64,5 +63,14 @@ public class Excavator : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public void UpgradeDMG()
+    {
+        excavateDamage++;
+    }
+    public void UpgradeASP()
+    {
+        exavationsPerMinute++;
     }
 }
